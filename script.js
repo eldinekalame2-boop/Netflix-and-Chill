@@ -1,6 +1,6 @@
 function showMessage(response) {
   let videoPlayed = false;
-  if (response === "No") {
+  if (response === "Non") {
     const noButton = document.getElementById("no-button");
     const maxWidth = window.innerWidth - noButton.offsetWidth;
     const maxHeight = window.innerHeight - noButton.offsetHeight;
@@ -21,14 +21,16 @@ function showMessage(response) {
 
     // Update text content and hide the name message
     document.getElementById("question").textContent =
-      "Choose wisely";
-    document.getElementById("name").style.display = "none";
+      "Choisi bien";
+    const nameEl = document.getElementById("name");
+    if (nameEl) nameEl.style.display = "none";
+    
 
     // Add a mouseover event listener to the "No" button
     noButton.addEventListener("mouseover", () => {
       if (!videoPlayed) {
         const videoElement = document.createElement("video");
-        videoElement.src = "./Maroon 5 - Sugar.mp4#t=42";
+        videoElement.src = "Maroon 5 - Sugar.mp4#t=42";
         videoElement.autoplay = true;
         videoElement.controls = false;
         document.body.appendChild(videoElement);
@@ -53,9 +55,11 @@ function showMessage(response) {
     });
   }
 
-  if (response === "Yes") {
+  if (response === "Oui") {
     // Remove the name message and the "No" button
-    document.getElementById("name").remove();
+    const nameEl = document.getElementById("name");
+    if (nameEl) nameEl.remove();
+
     document.getElementById("no-button").remove();
     const videoElement = document.querySelector("video");
     if (videoElement) {
@@ -65,14 +69,14 @@ function showMessage(response) {
 
     // Create an audio element to play the sound
     const audioElement = document.createElement("audio");
-    audioElement.src = "./Minions Cheering.mp4"; // Source of the sound
+    audioElement.src = "Minions Cheering.mp4"; // Source of the sound
     audioElement.preload = "auto"; // Preloading the audio
     audioElement.play() // Play the sound
       .catch(e => console.error("Audio playback failed:", e)); // Catch and log playback errors
 
     // Update the text content, display the message, and change the image to "dance.gif"
     const yesMessage = document.getElementById("question");
-    yesMessage.textContent = "See you on the 14th my princess";
+    yesMessage.textContent = "OUUUIIIII! Rendez-vous le 14, Princesse. 💕";
     yesMessage.style.display = "block";
     yesMessage.style.fontStyle = "normal";
     document.getElementsByClassName("image")[0].src = "images/dance.gif";

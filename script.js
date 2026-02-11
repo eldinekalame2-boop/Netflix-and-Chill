@@ -1,6 +1,6 @@
 function showMessage(response) {
   let videoPlayed = false;
-  if (response === "Non") {
+  if (response === "Refuser") {
     const noButton = document.getElementById("no-button");
     const maxWidth = window.innerWidth - noButton.offsetWidth;
     const maxHeight = window.innerHeight - noButton.offsetHeight;
@@ -55,7 +55,7 @@ function showMessage(response) {
     });
   }
 
-  if (response === "Oui") {
+  if (response === "Accepter") {
     // Remove the name message and the "No" button
     const nameEl = document.getElementById("name");
     if (nameEl) nameEl.remove();
@@ -76,7 +76,7 @@ function showMessage(response) {
 
     // Update the text content, display the message, and change the image to "dance.gif"
     const yesMessage = document.getElementById("question");
-    yesMessage.textContent = "OUUUIIIII! Rendez-vous le 14, Princesse. 💕";
+    yesMessage.textContent = "Soit prête demain après-midi on va se détendre Princesse. 😏💕";
     yesMessage.style.display = "block";
     yesMessage.style.fontStyle = "normal";
     document.getElementsByClassName("image")[0].src = "images/dance.gif";
